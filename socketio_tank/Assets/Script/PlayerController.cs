@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject bulletPrefab;
+    public Transform muzzle = default;
+    public float bulletSpeed;
     public float moveSpeed;
     public float turnSpeed;
     public bool isLocaPlayer = false;
@@ -50,15 +53,20 @@ public class PlayerController : MonoBehaviour
             NetworkManager.instance.GetComponent<NetworkManager>().CommandTurn(transform.rotation);
             oldRotation = currentRotation;
         }
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    NetworkManager n = NetworkManager.instance.GetComponent<NetworkManager>();
-        //    n.CommandShoot();
-        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            NetworkManager n = NetworkManager.instance.GetComponent<NetworkManager>();
+            n.CommandShoot();
+        }
     }
 
-    //public void CmdFire()
-    //{
-    //    var bullet = Instantiate(bulletPrefab,)
-    //}
+    public void CmdFire()
+    {
+        var bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity) as GameObject;
+
+        Bullet b = bullet.GetComponent<Bullet>();
+        b.playerFrom = this.gameObject;
+        bullet.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+        Destroy(b, 5);
+    }
 }

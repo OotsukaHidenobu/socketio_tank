@@ -169,8 +169,8 @@ public class NetworkManager : MonoBehaviour
 
         GameObject p = GameObject.Find(shootJSON.name);
 
-        ShotBase pc = p.GetComponent<ShotBase>();
-        pc.HandGunShot();
+        PlayerController pc = p.GetComponent<PlayerController>();
+        pc.CmdFire();
     }
     void OnHealth(SocketIOEvent socketIOEvent)
     {
@@ -178,7 +178,7 @@ public class NetworkManager : MonoBehaviour
         string data = socketIOEvent.data.ToString();
         UserHealthJSON userHealthJSON = UserHealthJSON.CreateFromJSON(data);
         GameObject p = GameObject.Find(userHealthJSON.name);
-        PlayerStatus h = p.GetComponent<PlayerStatus>();
+        Health h = p.GetComponent<Health>();
         h.currentHealth = userHealthJSON.health;
         h.OnChangeHealth();
     }

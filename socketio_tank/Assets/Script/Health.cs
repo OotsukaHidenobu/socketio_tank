@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
     {
         currentHealth -= amount;
         NetworkManager n = NetworkManager.instance.GetComponent<NetworkManager>();
-        n.CommandHealthChange(playerFrom, gameObject, amount);
+        n.CommandHealthChange(playerFrom, this.gameObject, amount);
     }
     public void OnChangeHealth()
     {

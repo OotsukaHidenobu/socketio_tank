@@ -584,7 +584,6 @@ GameObject:
   - component: {fileID: 271880160929195661}
   - component: {fileID: 271880160929195662}
   - component: {fileID: 271880160929195660}
-  - component: {fileID: 271880160929195659}
   - component: {fileID: 271880160929195657}
   - component: {fileID: -7989946016075255667}
   m_Layer: 0
@@ -624,6 +623,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9917263682e2942ab5d920eabfebff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3176142134764836524, guid: 009ff6cfc7877be4697a9eea8a04c456,
+    type: 3}
+  muzzle: {fileID: 271880161105288853}
+  bulletSpeed: 30
   moveSpeed: 5
   turnSpeed: 60
   isLocaPlayer: 0
@@ -643,25 +646,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &271880160929195659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 271880160929195663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c50935bb31bff8846b7a8d41abf22a46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 3176142134764836524, guid: 009ff6cfc7877be4697a9eea8a04c456, type: 3}
-  muzzle: {fileID: 271880161105288853}
-  speed: 30
-  firingInterval: 0
-  reloadtime: 1
-  magazineAmmo: 300
-  power: 1
 --- !u!114 &271880160929195657
 MonoBehaviour:
   m_ObjectHideFlags: 0
