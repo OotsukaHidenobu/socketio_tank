@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public const float maxHealth = 3;
+    public const float maxHealth = 100000;
     public bool destroyOnDeath;
 
     public float currentHealth = maxHealth;
@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
     {
         currentHealth -= amount;
         NetworkManager n = NetworkManager.instance.GetComponent<NetworkManager>();
-        n.CommandHealthChange(playerFrom, this.gameObject, amount);
+        n.CommandHealthChange(playerFrom, this.gameObject, amount,false);
     }
     public void OnChangeHealth()
     {

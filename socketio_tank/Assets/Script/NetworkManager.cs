@@ -77,10 +77,10 @@ public class NetworkManager : MonoBehaviour
         socket.Emit("player shoot");
     }
 
-    public void CommandHealthChange(GameObject playerFrom,GameObject playerTo,float healthChange)
+    public void CommandHealthChange(GameObject playerFrom,GameObject playerTo,int healthChange,bool isEnemy)
     {
         print("health change");
-        HealthChangeJSON healthChangeJSON = new HealthChangeJSON(playerTo.name, healthChange, playerFrom.name);
+        HealthChangeJSON healthChangeJSON = new HealthChangeJSON(playerTo.name, healthChange, playerFrom.name,isEnemy);
         socket.Emit("health", new JSONObject(JsonUtility.ToJson(healthChangeJSON)));
     }
 
@@ -276,16 +276,16 @@ public class NetworkManager : MonoBehaviour
     public class HealthChangeJSON
     {
         public string name;
-        public float hpChange;
+        public int hpChange;
         public string from;
-        //public bool isEnemy;
+        public bool isEnemy;
 
-        public HealthChangeJSON(string _name, float _hpChange, string _from/*, bool _isEnemy*/)
+        public HealthChangeJSON(string _name, int _hpChange, string _from, bool _isEnemy)
         {
             name = _name;
             hpChange = _hpChange;
             from = _from;
-            //isEnemy = _isEnemy;
+            isEnemy = _isEnemy;
         }
     }
 
