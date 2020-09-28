@@ -17,12 +17,20 @@ public class Health : MonoBehaviour
 
     float invincibleCount;
     bool invincibleOn = false;
+
+    Vector3 startPos;
+
+    GameObject resultUI;
     void Start()
     {
         PlayerController pc = GetComponent<PlayerController>();
         isLocalPlayer = pc.isLocaPlayer;
         slider.maxValue = currentHealth;
         slider.value = currentHealth;
+
+        resultUI = GameObject.Find("ResultUI");
+
+        startPos = gameObject.transform.position;
     }
 
     public void TakeDamage(GameObject playerFrom, int amount)
@@ -36,6 +44,23 @@ public class Health : MonoBehaviour
         slider.value = currentHealth;
         if (currentHealth <= 0)
         {
+            foreach(Transform child in resultUI.transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+            if(startPos.x > 0)
+            {
+                resultUI.transform.GetChild(0).localPosition = new Vector3(-285, -1, 0);
+                resultUI.transform.GetChild(1).localPosition = new Vector3(258, -1, 0);
+                print("loselose"+startPos.x);
+            }
+            else
+            {
+                resultUI.transform.GetChild(0).localPosition = new Vector3(258, -1, 0);
+                resultUI.transform.GetChild(1).localPosition = new Vector3(-285, -1, 0);
+                print("fffasdf");
+            }
+            Destroy(gameObject);
             if (destroyOnDeath)
             {
                 Destroy(gameObject);
