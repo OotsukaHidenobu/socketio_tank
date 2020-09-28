@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public const float maxHealth = 100000;
+    public const float maxHealth = 100;
     public bool destroyOnDeath;
 
     public float currentHealth = maxHealth;

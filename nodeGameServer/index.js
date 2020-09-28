@@ -119,10 +119,10 @@ io.on('connection', function(socket){
                 });
             }*/
 
-            // var response = {
-            //     name: (!data.isEnemy) ? clients[indexDamaged].name : enemies[indexDamaged].name,
-            //     health: (!data.isEnemy) ? clients[indexDamaged].health : enemies[indexDamaged].health
-            // };
+            var response = {
+                name: clients[indexDamaged].name ,/*(!data.isEnemy) ? clients[indexDamaged].name : enemies[indexDamaged].name,*/
+                health: clients[indexDamaged].health /*(!data.isEnemy) ? clients[indexDamaged].health : enemies[indexDamaged].health*/
+            };
             console.log(currentPlayer.name+' bcst: health '+JSON.stringify(response));
             socket.emit('health', response);
             socket.broadcast.emit('health', response);

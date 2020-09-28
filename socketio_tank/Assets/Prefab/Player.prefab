@@ -671,7 +671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyOnDeath: 0
-  currentHealth: 3
+  currentHealth: 100
   invincible: 0
   slider: {fileID: 271880160673827435}
 --- !u!1 &271880161042540802
