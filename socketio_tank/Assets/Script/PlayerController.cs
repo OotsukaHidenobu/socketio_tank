@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
     public void CmdFire()
     {
         var bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity) as GameObject;
+        AudioManager.Instance.PlaySE(AUDIO.SE_CANNON1,0.3f,0,0.35f);
 
         Bullet b = bullet.GetComponent<Bullet>();
         b.playerFrom = this.gameObject;

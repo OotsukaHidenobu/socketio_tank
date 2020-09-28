@@ -5,6 +5,17 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [HideInInspector] public GameObject playerFrom;
+
+    private void Start()
+    {
+        StartCoroutine(Death());
+    }
+    IEnumerator Death()
+    {
+        yield return new WaitForSeconds(4);
+        Destroy(gameObject);
+
+    }
     private void OnCollisionEnter(Collision collision)
     {
         var hit = collision.gameObject;

@@ -119,6 +119,7 @@ public class NetworkManager : MonoBehaviour
     void OnPlay(SocketIOEvent socketIOEvent)
     {
         print("you joined");
+        AudioManager.Instance.PlayBGM(AUDIO.BGM_DANGER,0.1f);
         string data = socketIOEvent.data.ToString();
         UserJSON currentUserJSON = UserJSON.CreateFromJSON(data);
         Vector3 position = new Vector3(currentUserJSON.position[0], currentUserJSON.position[1], currentUserJSON.position[2]);

@@ -36,6 +36,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(GameObject playerFrom, int amount)
     {
         currentHealth -= amount;
+        AudioManager.Instance.PlaySE(AUDIO.SE_BEING_BOMBED);
         NetworkManager n = NetworkManager.instance.GetComponent<NetworkManager>();
         n.CommandHealthChange(playerFrom, this.gameObject, amount,false);
     }
@@ -61,6 +62,7 @@ public class Health : MonoBehaviour
                 print("fffasdf");
             }
             Destroy(gameObject);
+            AudioManager.Instance.PlaySE(AUDIO.SE_EXPLOSION3);
             if (destroyOnDeath)
             {
                 Destroy(gameObject);
