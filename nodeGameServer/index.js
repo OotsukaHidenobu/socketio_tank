@@ -105,7 +105,7 @@ io.on('connection', function(socket){
                 clients = clients.map(function(client,index){
                     if(client.name === data.name){
                         indexDamaged = index;
-                        client.health -= data.healthChange;
+                        client.health -= 10;//data.healthChange;
                     }
                     return client;
                 });

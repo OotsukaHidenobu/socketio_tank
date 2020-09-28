@@ -104,9 +104,11 @@ public class NetworkManager : MonoBehaviour
         GameObject p = Instantiate(player, position, rotation) as GameObject;
         PlayerController pc = p.GetComponent<PlayerController>();
         Transform t = p.transform.Find("HealthbarCanvas");
-        Transform t1 = t.transform.Find("Player Name");
+        Transform panel = t.transform.Find("Panel");
+        Transform t1 = panel.transform.Find("Player Name");
         Text playerName = t1.GetComponent<Text>();
         playerName.text = userJSON.name;
+        //panel.localPosition = new Vector3(292, -192, 0);
         pc.isLocaPlayer = false;
         p.name = userJSON.name;
         PlayerStatus h = p.GetComponent<PlayerStatus>();
@@ -124,9 +126,11 @@ public class NetworkManager : MonoBehaviour
         GameObject p = Instantiate(player, position, rotation) as GameObject;
         PlayerController pc = p.GetComponent<PlayerController>();
         Transform t = p.transform.Find("HealthbarCanvas");
-        Transform t1 = t.transform.Find("Player Name");
+        Transform panel = t.transform.Find("Panel");
+        Transform t1 = panel.transform.Find("Player Name");
         Text playerName = t1.GetComponent<Text>();
         playerName.text = currentUserJSON.name;
+        //panel.localPosition = new Vector3(-299, -192, 0);
         pc.isLocaPlayer = true;
         p.name = currentUserJSON.name;
     }
